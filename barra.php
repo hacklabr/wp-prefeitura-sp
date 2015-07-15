@@ -20,6 +20,26 @@
         top: 78px;
     }
 </style>
+<script type="text/javascript">
+    (function($){
+        var siteHeaderTop, $siteHeader;
+        
+        $(window).scroll(function(){
+            if(!siteHeaderTop){
+                $siteHeader = $('.site-header') 
+                siteHeaderTop = parseInt($siteHeader.css("top"));
+            }
+            
+            var top;
+            if(this.scrollY >= 46){
+                top = siteHeaderTop - 46;
+            }else{
+                top =  siteHeaderTop - this.scrollY;
+            }
+            $siteHeader.css('top', top);
+        });
+    })(jQuery);
+</script>
 <div class="barra-prefeitura-sp">
     <a href="http://www.prefeitura.sp.gov.br" target="_blank">
         <img src="<?php echo plugins_url('logo_portal.gif', __FILE__) ?>" alt="Portal da Prefeitura de São Paulo" class="logo-portal" title="Portal da Prefeitura de São Paulo">
